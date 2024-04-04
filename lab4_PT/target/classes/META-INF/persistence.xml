@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+                                 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+    <persistence-unit name="my-pu">
+        <description>Moja aplikacja JPA</description>
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <properties>
+            <!-- Konfiguracja połączenia do bazy H2 -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:testdb"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+
+            <!-- Automatyczne tworzenie schematu bazy danych -->
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+
+            <!-- Logowanie SQL -->
+            <property name="hibernate.show_sql" value="false"/>
+        </properties>
+    </persistence-unit>
+</persistence>
